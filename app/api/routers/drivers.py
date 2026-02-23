@@ -64,8 +64,9 @@ async def get_all_drivers():
 
 """POST"""
 
+# Insert a New Driver
 @drivers_router.post("", response_model=DriverOut, status_code=status.HTTP_201_CREATED)
-def insert_new_driver(
+async def insert_new_driver(
     payload: DriverCreate,
     credentials: HTTPAuthorizationCredentials = Depends(security)
 ):
