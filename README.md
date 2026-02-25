@@ -38,3 +38,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
+
+Please use these values in db_raw for respective user and password:
+user = "root"
+password = "SEPS"
