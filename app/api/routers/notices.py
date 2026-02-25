@@ -55,7 +55,7 @@ async def insert_new_notice(
 
     if notice_id is None:
         raise HTTPException(
-            status_code=400,
+            status_code=404,
             detail="Car does not exist. Cannot issue notice."
         )
 

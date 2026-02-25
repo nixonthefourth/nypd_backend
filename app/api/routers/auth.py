@@ -16,21 +16,11 @@ security = HTTPBearer()
 def login(data: LoginRequest):
 
     valid_users = {
-        "officer_user",
-        "driver_1",
-        "driver_2",
-        "driver_3",
-        "driver_4",
-        "driver_5"
+        "officer_user"
     }
 
     valid_passwords = {
-        "officer_password",
-        "driver_1_password",
-        "driver_2_password",
-        "driver_3_password",
-        "driver_4_password",
-        "driver_5_password"
+        "officer_password"
     }
 
     if data.username not in valid_users or data.password not in valid_passwords:
