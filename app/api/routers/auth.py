@@ -8,11 +8,11 @@ from app.core.security import (
 )
 from app.database.db_raw import *
 
-auth_router = APIRouter(prefix="/login", tags=["Authentication"])
+auth_router = APIRouter(prefix="/token", tags=["Authentication"])
 security = HTTPBearer()
 
 # POST
-@auth_router.post("/", response_model=TokenResponse)
+@auth_router.post("", response_model=TokenResponse)
 def login(data: LoginRequest):
 
     valid_users = {
@@ -31,7 +31,7 @@ def login(data: LoginRequest):
 
 # PUT
 
-@auth_router.put("/", response_model=TokenResponse)
+@auth_router.put("", response_model=TokenResponse)
 def refresh_token(
     credentials: HTTPAuthorizationCredentials = Depends(security)
 ):
@@ -44,7 +44,7 @@ def refresh_token(
 
 # DELETE
 
-@auth_router.delete("/")
+@auth_router.delete("")
 def logout(
     credentials: HTTPAuthorizationCredentials = Depends(security)
 ):
