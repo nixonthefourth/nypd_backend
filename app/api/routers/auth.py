@@ -65,25 +65,6 @@ def require_civilian_payload(token: str):
 
     return payload
 
-# POST
-@auth_router.post("", response_model=TokenResponse)
-def login(data: LoginRequest):
-
-    if not validate_admin_credentials(data.username, data.password):
-        raise HTTPException(status_code=401, detail="Invalid credentials")
-
-    token = create_access_token({
-        "sub": data.username,
-        "role": "admin"
-    })
-
-    return {
-        "access_token": token,
-        "token_type": "bearer",
-        "role": "admin"
-    }
-
-
 @auth_router.post("/admin/login", response_model=AdminTokenResponse)
 def login_admin(data: AdminLoginRequest):
     if not validate_admin_credentials(data.username, data.password):
