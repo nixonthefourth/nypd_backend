@@ -1,0 +1,31 @@
+services:
+  database:
+    build: 
+      context: app/database
+    restart: unless-stopped
+    ports:
+    - 3306:3306
+    volumes:
+      - database_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_USER
+      - MYSQL_DATABASE
+      - MYSQL_PASSWORD
+
+  backend:
+    build: 
+      context: .
+    restart: unless-stopped
+    ports:
+    - 8000:8000
+    environment:
+      - MYSQL_HOST
+      - MYSQL_USER
+      - MYSQL_DATABASE
+      - MYSQL_PASSWORD
+    depends_on:
+      - database
+
+volumes:
+  database_data: {}

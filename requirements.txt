@@ -1,6 +1,7 @@
 fastapi
 uvicorn
 mysqlclient
-passlib[bcrypt]
+passlib[argon2]
 python-jose[cryptography]
 python-multipart
+pydantic-settings

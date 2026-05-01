@@ -32,7 +32,7 @@ CREATE TABLE driver_details (
     address_id INT NOT NULL, 
     email VARCHAR(60) NOT NULL, # New Field
     username VARCHAR(60) NOT NULL, # New Field
-    user_password VARCHAR(70) NOT NULL, # New Field
+    user_password VARCHAR(255) NOT NULL, # New Field
     phone_number VARCHAR(15) NOT NULL, # New Field
     licence_number VARCHAR(20) NOT NULL,
     state_issue VARCHAR(40) NOT NULL,
@@ -172,7 +172,7 @@ INSERT INTO driver_details (
     height_inches, weight_pounds, eyes_colour
 )
 VALUES (
-    1, 'johndoe@gmail.com', 'john_doe', '007jd', '07455890052',
+    1, 'johndoe@gmail.com', 'john_doe', 'z', '07455890052',
     'NY1234567', 'New York', 'Doe', 'John', '1990-05-29',
     72, 154, 'Blue'
 );

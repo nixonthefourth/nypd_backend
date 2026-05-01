@@ -2,15 +2,17 @@
 # Imports
 import MySQLdb
 
+from app.settings import settings
+
 # Get Connection
 def get_connection():
     # Define Connection Parameters
     conn = MySQLdb.connect(
-        host = "localhost",
+        host = settings.MYSQL_HOST,
         port = 3306,
-        user = "root",
-        password = "0777",
-        db = "notice_base",
+        user = settings.MYSQL_USER,
+        password = settings.MYSQL_PASSWORD,
+        db = settings.MYSQL_DATABASE,
         charset="utf8mb4"
     )
 

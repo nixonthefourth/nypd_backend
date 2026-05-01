@@ -8,7 +8,7 @@ SECRET_KEY = "SEPS"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
 
 # In-memory blacklist
 blacklisted_tokens = set()
